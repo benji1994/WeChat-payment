@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body {
+			height: 2000px;
+  			font-family: 'SFPro-Light', 'PingFangSC-Light', Arial, "微软雅黑", sans-serif;
+/*			font-family: '苹方国标-粗', Arial, "微软雅黑", sans-serif;*/
+  			line-height: 1.42857143;
+  			/*padding: 10px 0px;
+  			padding-left: 200px;*/
+/*  			color: red;*/
+			color: #000000;
+		}
+
+		.en {
+			font-family: "SFPro-Light";
+/*			font-family: "苹方国标-粗";*/
+		}
+
+		#screenshot {
+			width: 828px;
+			height: 1792px;
+			padding: 0;
+  			margin: 0px;
+  			position: relative;
+  			float: left;
+  			background-color: #EFEFEF;
+		}
+
+		#bgm {
+			position: absolute;
+			display: inline-block;
+			width: 828px;
+			height: 1792px;
+			z-index: 999;
+			opacity: 0.3;
+			left: 0;
+			top:  0;
+		}
+
+		#status {
+			width: 100%;
+			height: 100px;
+		}
+
+		#status #timebar {
+		    font-size: 33px;
+		    position: absolute;
+		    left: 60px;
+		    font-family: "SFPro-Medium";
+		    line-height: 100px;
+		    vertical-align: middle;
+		    font-weight: 400;
+		    width: 110px;
+		}
+
+		#closebar {
+			width: 100%;
+			font-size: 14px;
+			height: 75px;
+		}
+
+		#close {
+			width: 30px;
+		    height: 30px;
+		    margin-left: 41px;
+		    margin-top: 24px;
+		    display: block;
+		    float: left;
+		}
+
+		#allpaylist {
+			float: right;
+		    font-size: 35px;
+		    font-family: "PingFangSC-Regular";
+		    line-height: 80px;
+		    margin-right: 35px;
+		    vertical-align: middle;
+
+		}
+
+		#photo {
+			width: 100px;
+			height: 100px;
+			margin: 0 auto;
+			margin-top: 58px;
+			border-radius: 50px;
+			display: block;
+		}
+
+		#nickname {
+			font-size: 35px;
+		    margin: 0 auto;
+		    margin-top: 26px;
+		    text-align: center;
+		    line-height: 35px;
+		    font-family: "PingFangSC-Regular";
+		}
+		#price {
+			font-size: 60px;
+		    text-align: center;
+		    margin-top: 52px;
+		    font-family: "WeChat-Sans-Std-Regular";
+		    line-height: 60px;
+		}
+
+		#des {
+		    margin-top: 105px;
+		    margin-left: 64px;
+		    margin-right: 64px;
+		    border-top: #EFEFEF 1px solid;
+		    font-size: 28px;
+		    line-height: 40px;
+		    font-family: 'PingFangSC-Light';
+		    padding-top: 50px;
+		    padding-bottom: 62px;
+		    letter-spacing: 0.5px;
+		}
+		#des > div {
+			margin-bottom: 16px;
+		}
+		#des div:first-child {
+			overflow: hidden;
+		}
+		#des .left {
+			display: block;
+			float: left;
+/*			color: #ADADAD;*/
+			color: #7c7c7c;
+		}
+		#des .right {
+			word-break: break-all;
+			padding-left: 174px;
+		}
+
+		#des #storeAllName {
+		}
+
+		input {
+			padding: 0 5px;
+		}
+
+		#tail {
+			padding: 0 64px;
+			background-color: #FFFFFF;
+		    margin-top: 15px;
+		    border-top: 1px solid #EFEFEF;
+			border-bottom: 1px solid #EFEFEF;
+
+		}
+
+		#tail #billservice {
+			line-height: 102px;
+		    height: 102px;
+		    font-size: 28px;
+		    font-family: 'PingFangSC-Regular';
+		    vertical-align: middle;
+		} 
+
+
+		#tail #other {
+			margin-top: 18px;
+			margin-bottom: 16px;
+		    overflow: hidden;
+		}
+
+		#tail #other span {
+			display: block;
+		    float: left;
+		    width: 350px;
+		    line-height: 29px;
+		    height: 29px;
+		    font-size: 29px;
+		    font-family: 'PingFangSC-Light';
+		    margin: 29px 0;
+/*		    background-color: greenyellow;*/
+			color: #576a94;
+			position: relative;
+    	}
+
+/*    	#tail #other span i {
+		    width: 33px;
+		    height: 32px;
+		    line-height: 32px;
+		    margin-right: 16px;
+     	    background-color: lightpink;
+		    display: inline-block;
+		    vertical-align: top;
+    	}
+*/
+    	#supply {
+		    margin-top: 114px; 
+		    text-align: center;
+		    xcolor: #ADADAD;
+		    color: #7c7c7c;
+		    font-size: 25px;
+		    line-height: 25px;
+		    vertical-align: middle;
+		    height: 25px;
+		    font-family: 'PingFangSC-Light';
+    	}
+
+    	#homebar {
+    		width: 296px;
+		    height: 10px;
+		    border-radius: 5px;
+		    background: #000000;
+		    position: absolute;
+		    bottom: 16px;
+		    left: 266px;
+    	}
+
+    	#dashboard {
+    		padding: 30px;
+    		width: 591px;
+    		float: left;
+    	}
+
+    	#icon1 {
+/*		    background-image: url(./icon/cellularbars.svg);*/
+/*		    background-repeat: no-repeat;*/
+/*		    background-position: 0px 0px;*/
+/*		    background-size: 100% 100%;*/
+		    width: 44px;
+		    height: 29px;
+		    position: absolute;
+		    top: 35px;
+		    right: 135px;
+       	}
+    	#icon2 {
+/*		    background-image: url(./icon/wifi.svg);*/
+		    /*background-repeat: no-repeat;
+		    background-position: 0px 0px;
+		    background-size: 100% 100%;*/
+	        width: 41px;
+		    height: 31px;
+		    position: absolute;
+		    top: 34px;
+		    right: 92px;
+       	}
+       	#icon3 {
+		    /*background-image: url(./icon/battery.100.svg);
+		    background-repeat: no-repeat;
+		    background-position: 0px 0px;
+		    background-size: 100% 100%;*/
+            width: 59px;
+		    height: 39px;
+		    position: absolute;
+		    top: 30px;
+		    right: 30px;
+       	}
+       	#icon4 {
+            width: 32px;
+		    height: 30px;
+		    position: absolute;
+		    top: 0px;
+		    left: 0px;
+       	}
+       	#icon5 {
+            width: 30px;
+		    height: 30px;
+		    position: absolute;
+		    top: -1px;
+		    left: 22px;
+       	}
+       	#icon6 {
+            width: 30px;
+		    height: 28px;
+		    position: absolute;
+		    top: 0px;
+		    left: 1px;
+       	}
+	</style>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+	<div id="screenshot" class="screenshot">
+		<div style="width:100%;background-color: #FFFFFF;border-bottom: 1px solid #EFEFEF;">
+			<!-- <img src="" id="bgm"> -->
+			<div id="status">
+				<div id="timebar"></div>
+				<img id="icon1"/>
+				<img id="icon2"/>
+				<img id="icon3"/>
+			</div>
+			<div id='closebar'>
+				<img id="close" src="" />
+				<div id="allpaylist">全部账单</div>
+			</div>
+			<img src="" id="photo">
+			<div id="nickname">美团平台商户</div>
+			<div id="price">-29.00</div>
+			<!-- <div id="des">
+				<div><span class="left">当前状态</span><div class="right">支付成功</div></div>
+				<div><span class="left">商品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><div class="right" id="storeAllName">美团订单<span class='en'>-22111211100400000026871793062385<span></div></div>
+				<div><span class="left">收单机构</span><div id="storeBy" class="right">北京钱袋宝支付技术有限公司</div></div>
+
+				<div><span class="left">清算机构</span><div id="time" class="right">中国银联股份有限公司</div></div>
+				<div><span class="left">支付时间</span><div id="method" class="right"><span class="en">2022</span>年<span class="en">11</span>月<span class="en">12</span>日 <span class="en">13:35:43</span></div></div>
+				<div><span class="left">支付方式</span><div id="method" class="right">建设银行储蓄卡<span class="en">(4271)</span></div></div>
+				<div><span class="left">交易单号</span><div id="transOrder" class="right en">4200001640202211129436341265</div></div>
+				<div><span class="left">商户单号</span><div id="storeOrder" class="right en">22111211100400000026871793062385</div></div>		
+			</div> -->
+			<div id="des">
+				<div><span class="left">当前状态</span><div class="right">支付成功</div></div>
+				<div><span class="left">商品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><div class="right" id="goods">小红书1对1系统实战课</div></div>
+				<div><span class="left">商户全称</span><div id="storeAllName" class="right">广州领知科技有限公司</div></div>
+				<div><span class="left">收单机构</span><div id="storeBy" class="right">财付通支付科技有限公司</div></div>
+				<div><span class="left">支付时间</span><div id="time" class="right"><span class="en">2022</span>年<span class="en">11</span>月<span class="en">12</span>日 <span class="en">11:26:24</span></div></div>
+				<div><span class="left">支付方式</span><div id="method" class="right">零钱</div></div>
+				<div><span class="left">交易单号</span><div id="transOrder" class="right en">4200001640202211129436341265</div></div>
+				<div><span class="left">商户单号</span><div id="storeOrder" class="right en">22111211100400000026871793062385</div></div>		
+			</div>
+		</div>
+		<div id="tail">
+			<div id="billservice">账单服务</div>
+			<div style="border-bottom: #EFEFEF 1px solid;width: 100%;height: 1px;"></div>
+			<div id="other">
+				<span style="padding-left: 48px;"><img id="icon4"></img>对订单有疑惑</span><span style="padding-left: 69px;"><img id='icon5'></img>发起群收款</span>
+				<span style="margin-top: 22px;margin-bottom: 44px;padding-left: 48px;"><img id="icon6"></img>在此商户的交易</span>
+			</div>
+		</div>
+		<div id="supply">本服务由财付通提供</div>
+		<div id="homebar"></div>
+	</div>
+	<div id="dashboard">
+		<form>
+			<div>
+				<label>商户图标：</label><input type='file' id="logoInput"/>
+			</div>
+			<div>
+				<label>商户名称：</label><input type="text" name="" id="nicknameInput">
+			</div>
+			<div>
+				<label>转账金额：</label><input type="text" name="" id="priceInput">
+			</div>
+			<div>
+				<label>商&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;品：</label><input type="text" name="" id="goodsInput" style="width: 250px;">
+			</div>
+			<div>
+				<label>商户全称：</label><input type="text" name="" id="storeAllNameInput" style="width: 200px;">
+			</div>
+			<div>
+				<label>支付时间：</label><input type="text" name="" style="width: 160px" id="timeInput">
+				<label>状态栏时间：</label><input style="width: 65px" type="text" name="" id="timebarInput">
+				<button id="timeSubmit">确定</button><button id="timeBtn">获取当前时间</button>
+			</div>
+			<div>
+				<label>支付方式：</label><input type="text" name="" id="methodInput">
+			</div>
+			<div>
+				<label>交易单号：</label><input type="text" name="" id="transOrderInput" disabled>
+			</div>
+			<div>
+				<label>商户单号：</label><input type="text" name="" id="storeOrderInput"><button id="storeorderrandom">随机生成</button>
+			</div>
+			<div>
+				<button type="button" value="" id="exportBtn">导出图片</button>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript">
+
+		// 时间戳转为正常时间的公共方法，当然你也可以加上小时、分、秒
+		function filterTime(time) {
+		  const date = new Date(time)
+
+		  return {
+		  	Y: date.getFullYear(),
+		  	M: date.getMonth() + 1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1 ,
+		  	D: date.getDate(),
+		  	H: date.getHours(), // 小时
+		  	Mi: date.getMinutes(), // 分钟
+		  	S: date.getSeconds() // 秒
+		  }
+		}
+		
+		function dateformat (date) {
+			var timeobj = filterTime(new Date().valueOf())
+
+			const time = `${timeobj.Y}年${timeobj.M}月${timeobj.D}日 ${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
+			timeDiv.innerHTML= time
+
+			document.getElementById("timeInput").value = time
+
+		}
+
+	 	var imglizi = document.getElementById("bgm")
+
+	 	var img = new Image();
+
+        
+        img.onload = ()=> {
+			console.log("已经进去onload")
+			console.log(img.src)
+            var canvas = document.createElement("canvas");
+            canvas.width = img.width;
+            canvas.height = img.height;
+            var ctx = canvas.getContext("2d");
+            img.setAttribute("crossOrigin", 'Anonymous')
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+            var ext = img.src.substring(img.src.lastIndexOf(".") + 1).toLowerCase();
+            var base64 = canvas.toDataURL("image/" + ext);
+            if(base64.length>10000){
+                //此处有一个bug，会执行两次onload事件，第一次执行加载的图片是不对的，所以需要使用第二次的图片
+                imglizi.src = base64
+            }
+        }	
+
+
+        img.onerror=(error)=>{
+            console.log("error",error)
+        }
+
+
+    	function selectFrom(lowerValue, upperValue) {
+		    var choices = upperValue - lowerValue + 1;
+		    return Math.floor(Math.random() * choices + lowerValue);
+		}
+
+    	$('#icon1').click(function () {
+    		imglizi = document.getElementById('icon1')
+	    	img.src = './icon/chart1.jpg'+'?v='+Math.random()
+	    	randomnumber = selectFrom(1, 3)
+    		switch(randomnumber) {
+	    		case 1: {
+	    			console.log(randomnumber)
+	    			img.src = './icon/chart1.jpg'+'?v='+Math.random()
+	    			break;
+	    		}
+	    		case 2: {
+	    			console.log(randomnumber)
+	    			img.src = './icon/chart2.jpg'+'?v='+Math.random()
+	    			break;
+	    		}
+		    	case 3: {
+	    			console.log(randomnumber)
+	    			img.src = './icon/chart3.jpg'+'?v='+Math.random()
+	    			break;
+	    		}
+    		}
+    	})
+
+    	$('#icon2').click(function () {
+    		imglizi = document.getElementById('icon2')
+    		randomnumber = selectFrom(1, 2)
+    		switch(randomnumber) {
+	    		case 1: {
+	    			console.log(randomnumber)
+	    			img.src = './icon/wifi1.jpg'+'?v='+Math.random()
+	    			break;
+	    		}
+	    		case 2: {
+	    			console.log(randomnumber)
+	    			img.src = './icon/wifi2.jpg'+'?v='+Math.random()
+	    			break;
+	    		}
+    		}
+	    	
+    	})
+
+    	
+    	$('#icon3').click(function () {
+    		imglizi = document.getElementById('icon3')
+    		randomnumber = selectFrom(1, 5)
+    		switch(randomnumber) {
+	    		case 1: {
+	    			console.log(randomnumber)
+	    			img.src = './icon/battery1.jpg'+'?v='+Math.random()
+	    			break;
+	    		}
+	    		case 2: {
+	    			console.log(randomnumber)
+	    			img.src = './icon/battery2.jpg'+'?v='+Math.random()
+	    			break;
+	    		}
+		    	case 3: {
+	    			console.log(randomnumber)
+	    			img.src = './icon/battery3.jpg'+'?v='+Math.random()
+	    			break;
+	    		}
+	    		case 4: {
+	    			console.log(randomnumber)
+	    			img.src = './icon/battery4.jpg'+'?v='+Math.random()
+	    			break;
+	    		}
+		    	case 5: {
+	    			console.log(randomnumber)
+	    			img.src = './icon/battery5.jpg'+'?v='+Math.random()
+	    			break;
+	    		}
+    		}
+    	})
+
+    	setTimeout(() => $('#icon1').trigger('click'), 100)
+    	setTimeout(() => $('#icon2').trigger('click'), 200)
+    	setTimeout(() => $('#icon3').trigger('click'), 300)
+
+    	$('#icon4').click(function () {
+    		imglizi = document.getElementById('icon4')
+    		img.src = './icon/icon4.jpg'+'?v='+Math.random()
+    	})
+
+    	$('#icon5').click(function () {
+    		imglizi = document.getElementById('icon5')
+    		img.src = './icon/icon5.jpg'+'?v='+Math.random()
+    	})
+
+    	$('#icon6').click(function () {
+    		imglizi = document.getElementById('icon6')
+    		img.src = './icon/icon6.jpg'+'?v='+Math.random()
+    	})
+
+    	setTimeout(() => $('#icon4').trigger('click'), 400)
+    	setTimeout(() => $('#icon5').trigger('click'), 500)
+    	setTimeout(() => $('#icon6').trigger('click'), 600)
+
+    	$('#close').click(function() {
+    		imglizi = document.getElementById('close')
+    		img.src = './icon/close.jpg'+'?v='+Math.random()
+    	})
+
+    	setTimeout(() => $('#close').trigger('click'), 700)
+
+        
+        //imglizi = document.getElementById('bgm')
+        //img.src = "./bg_white.PNG?v="+Math.random(); //修改的地方 imgurl 就是你的图片路径，加上随机数是解决可能存在缓存问题 
+		
+		const photoDiv = document.getElementById('photo')
+		$('#logoInput').change(function(event) {
+			// const imgSrc = './' + event.target.files[0].name
+			imglizi = photoDiv
+			img.src = './' + event.target.files[0].name + '?v='+Math.random(); //修改的地方 imgurl 就是你的图片路径，加上随机数是解决可能存在缓存问题
+		})
+
+		const nicknameDiv = document.getElementById('nickname')
+
+		$('#nicknameInput').bind('input ptopertychange', function() {
+			nicknameDiv.innerHTML = $(this).val()
+		})
+
+		const priceDiv = document.getElementById('price')
+
+		$('#priceInput').bind('input ptopertychange', function() {
+			priceDiv.innerHTML = $(this).val()
+		})
+
+		const goodsDiv = document.getElementById('goods')
+
+		$('#goodsInput').bind('input ptopertychange', function() {
+			goodsDiv.innerHTML = $(this).val()
+		})
+
+		const storeAllNameDiv = document.getElementById('storeAllName')
+
+		$('#storeAllNameInput').bind('input ptopertychange', function() {
+			storeAllNameDiv.innerHTML = $(this).val()
+		})
+
+		const timeDiv = document.getElementById('time')
+		const timeSubmit = document.getElementById('timeSubmit')
+		const timebarDiv = document.getElementById('timebar')
+		$('#timeSubmit').bind('click ptopertychange', function(e) {
+			e.preventDefault()
+
+			var timeobj
+			if($('#timeInput').val()) {
+				timeobj = filterTime($('#timeInput').val())
+
+				const time = `${timeobj.Y}年${timeobj.M}月${timeobj.D}日 ${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
+				timeDiv.innerHTML= time
+
+				const transorder = `${Math.round(Math.random()*10000000000)}${timeobj.Y}${timeobj.M < 10 ? '0'+ timeobj.M : timeobj.M}${timeobj.D < 10 ? '0' + timeobj.D : timeobj.D}${Math.round(Math.random()*100000000000)}`
+				document.getElementById('transOrderInput').value = transorder
+				transOrderDiv.innerHTML = transorder
+
+			}
+
+			if($('#timebarInput').val()) {
+				const timearr = $('#timebarInput').val().split(':')
+				console.log(timearr)
+
+				if (timearr[0] < 0 || timearr[0] > 24 || timearr[1] > 60 ||timearr[1] < 0) {
+					alert('时间出错了')
+					return
+				}
+				timebarDiv.innerHTML = $('#timebarInput').val()
+			} else {
+				timebarDiv.innerHTML = `${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}`
+				document.getElementById('timebarInput').value = `${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
+			}
+		})
+		$('#timeBtn').bind('click ptopertychange', function(e) {
+			e.preventDefault()
+			var timeobj = filterTime(new Date().valueOf())
+
+			const time = `${timeobj.Y}年${timeobj.M}月${timeobj.D}日 ${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
+			timeDiv.innerHTML= time
+			document.getElementById("timeInput").value = `${timeobj.Y}-${timeobj.M}-${timeobj.D} ${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
+
+			timebarDiv.innerHTML = `${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}`
+			document.getElementById('timebarInput').value = `${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
+
+			const transorder = `${Math.round(Math.random()*10000000000)}${timeobj.Y}${timeobj.M < 10 ? '0'+ timeobj.M : timeobj.M}${timeobj.D < 10 ? '0' + timeobj.D : timeobj.D}${Math.round(Math.random()*100000000000)}`
+			document.getElementById('transOrderInput').value = transorder
+			transOrderDiv.innerHTML = transorder
+
+		})
+
+		setTimeout(() => $('#timeBtn').trigger('click'), 100)
+
+		const methodDiv = document.getElementById('method')
+
+		$('#methodInput').bind('input ptopertychange', function() {
+			methodDiv.innerHTML = $(this).val()
+		})
+
+		const transOrderDiv = document.getElementById('transOrder')
+
+		$('#transOrderInput').bind('input ptopertychange', function() {
+			transOrderDiv.innerHTML = $(this).val()
+		})
+
+		const storeOrderDiv = document.getElementById('storeOrder')
+
+		$('#storeOrderInput').bind('input ptopertychange', function() {
+			storeOrderDiv.innerHTML = $(this).val()
+		})
+
+		$('#storeorderrandom').bind('click ptopertychange', function(e) {
+			e.preventDefault()
+			const storeid = Math.round(Math.random()*10000000000000)
+			storeOrderDiv.innerHTML = storeid
+			document.getElementById('storeOrderInput').value = storeid
+		})
+
+		const exportBtn = document.getElementById('exportBtn')
+
+
+		let screenshot = document.getElementById('screenshot') //需要截图的包裹的（原生的）DOM 对象
+		// let $canvas;
+		// let _scale,width,height;
+		// width = screenshot.clientWidth,//screenshot.offsetWidth; //获取dom 宽度
+		// height = screenshot.clientHeight,//screenshot.offsetHeight; //获取dom 高度
+		// $canvas = document.createElement("canvas"), //创建一个canvas节点
+		// _scale = 1; //定义任意放大倍数 支持小数
+		// $canvas.width = width * _scale; //定义canvas 宽度 * 缩放
+		// $canvas.height = height * _scale; //定义canvas高度 *缩放
+		// $canvas.style.width = screenshot.clientWidth * _scale + "px";
+		// $canvas.style.height = screenshot.clientHeight * _scale + "px";
+		// $canvas.getContext("2d").scale(_scale, _scale); //获取context,设置scale
+
+
+		// let upDomHeight = screenshot.offsetHeight;//包裹盒子高度
+		// let upDomWidth = screenshot.offsetWidth;//包裹盒子宽度
+		// alert(upDomHeight)
+		// alert(upDomWidth)
+
+
+		// 第一个参数是需要生成截图的元素,第二个是自己需要配置的参数,宽高等
+		// let opts = {
+		//     logging: false, //日志开关，便于查看html2canvas的内部执行流程
+		// 	scrollY: 0, 
+		// 	scrollX: 0,
+		// 	x: 200,
+		// 	y: 10,//要生成的dom元素之上所有dom的高度
+		// 	// backgroundColor: null, //避免图片有白色边框
+		//     scale: _scale, // 添加的scale 参数
+		//     canvas: $canvas, //自定义 canvas
+		//     useCORS: true, // 【重要】开启跨域配置
+		//     allowTaint: true,
+		//     width: width,
+		//     height: height,
+		//     foreignObjectRendering: true
+		// }
+
+		let opts =  {
+			useCORS: true,
+			allowTaint: true,
+			foreignObjectRendering: true,
+			windowWidth: screenshot.clientWidth,
+		    windowHeight: screenshot.clientHeight
+		}
+
+		$('#exportBtn').bind('click', function(event) {
+			event.preventDefault()
+
+			new html2canvas(screenshot, opts).then(canvas => {
+				// document.body.appendChild(canvas)
+				const url = canvas.toDataURL('image/jpeg')
+
+				// window.location.href = url;
+
+				let a = document.createElement('a')
+				a.innerHTML = '点我'
+				let event = new MouseEvent('click')
+				a.download = 1
+				a.href = url
+				a.dispatchEvent(event)
+			})
+		})
+
+	</script>
+</body>
+</html>

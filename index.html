@@ -543,6 +543,11 @@
 			img.src = './' + event.target.files[0].name + '?v='+Math.random(); //修改的地方 imgurl 就是你的图片路径，加上随机数是解决可能存在缓存问题
 		})
 
+		setTimeout(() => {
+			imglizi = document.getElementById('photo')
+    		img.src = './logo/logo1.jpeg'+'?v='+Math.random()
+		}, 800)
+
 		const nicknameDiv = document.getElementById('nickname')
 
 		$('#nicknameInput').bind('input ptopertychange', function() {

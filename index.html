@@ -23,8 +23,10 @@
 		}
 
 		.en {
-			font-family: "SFPro-Light";
+			xfont-family: "SFPro-Light";
+			font-family: "SF Pro Display Light";
 /*			font-family: "苹方国标-粗";*/
+			font-size: 29.5px;
 		}
 
 		#screenshot {
@@ -57,7 +59,8 @@
 		    font-size: 33px;
 		    position: absolute;
 		    left: 60px;
-		    font-family: "SFPro-Medium";
+		    xfont-family: "SFPro-Medium";
+		    font-family: "SFProDisplay-Medium";
 		    line-height: 100px;
 		    vertical-align: middle;
 		    font-weight: 400;
@@ -82,9 +85,10 @@
 		#allpaylist {
 			float: right;
 		    font-size: 35px;
-		    font-family: "PingFangSC-Regular";
+		    xfont-family: "PingFangSC-Regular";
+		    font-family: "PingFang SC Regular";
 		    line-height: 80px;
-		    margin-right: 35px;
+		    margin-right: 34px;
 		    vertical-align: middle;
 
 		}
@@ -104,7 +108,8 @@
 		    margin-top: 26px;
 		    text-align: center;
 		    line-height: 35px;
-		    font-family: "PingFangSC-Regular";
+		    xfont-family: "PingFangSC-Regular";
+		    font-family: "PingFang SC Regular";
 		}
 		#price {
 			font-size: 60px;
@@ -119,12 +124,13 @@
 		    margin-left: 64px;
 		    margin-right: 64px;
 		    border-top: #EFEFEF 1px solid;
-		    font-size: 28px;
+		    font-size: 28.5px;
 		    line-height: 40px;
-		    font-family: 'PingFangSC-Light';
+		    xfont-family: 'PingFangSC-Light';
+		    font-family: "PingFang SC Regular";
 		    padding-top: 50px;
 		    padding-bottom: 62px;
-		    letter-spacing: 0.5px;
+		    xletter-spacing: 0.5px;
 		}
 		#des > div {
 			margin-bottom: 16px;
@@ -289,7 +295,7 @@
 		<div style="width:100%;background-color: #FFFFFF;border-bottom: 1px solid #EFEFEF;">
 			<!-- <img src="" id="bgm"> -->
 			<div id="status">
-				<div id="timebar"></div>
+				<div id="timebar">16:53</div>
 				<img id="icon1"/>
 				<img id="icon2"/>
 				<img id="icon3"/>
@@ -301,7 +307,7 @@
 			<img src="" id="photo">
 			<div id="nickname">美团平台商户</div>
 			<div id="price">-29.00</div>
-			<!-- <div id="des">
+			<div id="des">
 				<div><span class="left">当前状态</span><div class="right">支付成功</div></div>
 				<div><span class="left">商品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><div class="right" id="storeAllName">美团订单<span class='en'>-22111211100400000026871793062385<span></div></div>
 				<div><span class="left">收单机构</span><div id="storeBy" class="right">北京钱袋宝支付技术有限公司</div></div>
@@ -311,8 +317,8 @@
 				<div><span class="left">支付方式</span><div id="method" class="right">建设银行储蓄卡<span class="en">(4271)</span></div></div>
 				<div><span class="left">交易单号</span><div id="transOrder" class="right en">4200001640202211129436341265</div></div>
 				<div><span class="left">商户单号</span><div id="storeOrder" class="right en">22111211100400000026871793062385</div></div>		
-			</div> -->
-			<div id="des">
+			</div>
+			<!-- <div id="des">
 				<div><span class="left">当前状态</span><div class="right">支付成功</div></div>
 				<div><span class="left">商品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><div class="right" id="goods">小红书1对1系统实战课</div></div>
 				<div><span class="left">商户全称</span><div id="storeAllName" class="right">广州领知科技有限公司</div></div>
@@ -321,7 +327,7 @@
 				<div><span class="left">支付方式</span><div id="method" class="right">零钱</div></div>
 				<div><span class="left">交易单号</span><div id="transOrder" class="right en">4200001640202211129436341265</div></div>
 				<div><span class="left">商户单号</span><div id="storeOrder" class="right en">22111211100400000026871793062385</div></div>		
-			</div>
+			</div> -->
 		</div>
 		<div id="tail">
 			<div id="billservice">账单服务</div>
@@ -534,8 +540,8 @@
     	setTimeout(() => $('#close').trigger('click'), 700)
 
         
-        //imglizi = document.getElementById('bgm')
-        //img.src = "./bg_white.PNG?v="+Math.random(); //修改的地方 imgurl 就是你的图片路径，加上随机数是解决可能存在缓存问题 
+        // imglizi = document.getElementById('bgm')
+        // img.src = "./bg_white.PNG?v="+Math.random(); //修改的地方 imgurl 就是你的图片路径，加上随机数是解决可能存在缓存问题 
 		
 		const photoDiv = document.getElementById('photo')
 		$('#logoInput').change(function(event) {

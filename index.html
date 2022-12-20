@@ -312,7 +312,7 @@
 			</div>
 			<img src="" id="photo">
 			<div id="nickname">新职高途</div>
-			<div id="price">4998.00</div>
+			<div id="price">-4998.00</div>
 			<!-- <div id="des">
 				<div><span class="left">当前状态</span><div class="right">支付成功</div></div>
 				<div><span class="left">商品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><div class="right" id="storeAllName">美团订单<span class='en'>-22111211100400000026871793062385<span></div></div>
@@ -348,28 +348,29 @@
 	</div>
 	<div id="dashboard">
 		<form>
-			<div>
+			<!-- <div>
 				<label>商户图标：</label><input type='file' id="logoInput"/>
+			</div> -->
+			<div>
+				<label>商户名称：</label><input type="text" name="" id="nicknameInput" placeholder="新职高途">
 			</div>
 			<div>
-				<label>商户名称：</label><input type="text" name="" id="nicknameInput">
+				<label>转账金额：</label><input type="text" name="" id="priceInput" placeholder="-4998.00">
 			</div>
 			<div>
-				<label>转账金额：</label><input type="text" name="" id="priceInput">
+				<label>商&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;品：</label><input type="text" name="" id="goodsInput" style="width: 250px;" placeholder="小红书1对1系统实战课">
 			</div>
 			<div>
-				<label>商&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;品：</label><input type="text" name="" id="goodsInput" style="width: 250px;">
+				<label>商户全称：</label><input type="text" name="" id="storeAllNameInput" style="width: 200px;" placeholder="广州领知科技有限公司">
 			</div>
 			<div>
-				<label>商户全称：</label><input type="text" name="" id="storeAllNameInput" style="width: 200px;">
-			</div>
-			<div>
-				<label>支付时间：</label><input type="text" name="" style="width: 160px" id="timeInput">
+				<label>支付时间：</label><input type="text" name="" style="width: 160px" id="timeInput"><br/>
+				<label>支付截止时间：</label><input type="text" name="" style="width: 160px" id="timeOverInput"><br/>
 				<label>状态栏时间：</label><input style="width: 65px" type="text" name="" id="timebarInput"><br/>
 				<button id="timeSubmit">确定</button><button id="timeBtn">获取当前时间</button>
 			</div>
 			<div>
-				<label>支付方式：</label><input type="text" name="" id="methodInput">
+				<label>支付方式：</label><input type="text" name="" id="methodInput" placeholder="零钱">
 			</div>
 			<div>
 				<label>交易单号：</label><input type="text" name="" id="transOrderInput" disabled>
@@ -378,7 +379,7 @@
 				<label>商户单号：</label><input type="text" name="" id="storeOrderInput"><button id="storeorderrandom">随机生成</button>
 			</div>
 			<div>
-				<button type="button" value="" id="exportBtn">导出图片</button>
+				<input type="text" style="width:30px;margin-right:5px" id="picnumber" placeholder="1"></input>张<button style="margin-left: 20px;" type="button" value="" id="exportBtn">导出图片</button>
 			</div>
 		</form>
 	</div>
@@ -470,7 +471,7 @@
         }
 
     	$('#icon2').click(function () {
-    		randomnumber = selectFrom(1, 2)
+    		randomnumber = selectFrom(2, 4)
     		img_wifi.src = './icon/wifi'+randomnumber+'.jpg'+'?v='+Math.random()
     	})
 
@@ -686,18 +687,20 @@
         img_logo.onerror=(error)=>{
             console.log("error",error)
         }
+
+        img_logo.src = './logo/logo1.jpeg'+'?v='+Math.random()
 		
-		const photoDiv = document.getElementById('photo')
-		$('#logoInput').change(function(event) {
-			// const imgSrc = './' + event.target.files[0].name
-			// console.log('-----'+getObjectUrl(event.target.files[0]))
-			// imglizi = photoDiv
-			// img.src = './' + event.target.files[0].name + '?v='+Math.random(); //修改的地方 imgurl 就是你的图片路径，加上随机数是解决可能存在缓存问题
+		// const photoDiv = document.getElementById('photo')
+		// $('#logoInput').change(function(event) {
+		// 	// const imgSrc = './' + event.target.files[0].name
+		// 	// console.log('-----'+getObjectUrl(event.target.files[0]))
+		// 	// imglizi = photoDiv
+		// 	// img.src = './' + event.target.files[0].name + '?v='+Math.random(); //修改的地方 imgurl 就是你的图片路径，加上随机数是解决可能存在缓存问题
 
-    		img_logo.src = './logo/logo1.jpeg'+'?v='+Math.random()
-		})
+    	// 	img_logo.src = './logo/logo1.jpeg'+'?v='+Math.random()
+		// })
 
-		$('#logoInput').trigger('change')
+		// $('#logoInput').trigger('change')
 
 		const nicknameDiv = document.getElementById('nickname')
 
@@ -744,13 +747,12 @@
 
 			if($('#timebarInput').val()) {
 				const timearr = $('#timebarInput').val().split(':')
-				console.log(timearr)
 
 				if (timearr[0] < 0 || timearr[0] > 24 || timearr[1] > 60 ||timearr[1] < 0) {
 					alert('时间出错了')
 					return
 				}
-				timebarDiv.innerHTML = $('#timebarInput').val()
+				timebarDiv.innerHTML = timearr[0] + ':' +timearr[1]
 			} else {
 				timebarDiv.innerHTML = `${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}`
 				document.getElementById('timebarInput').value = `${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
@@ -763,6 +765,8 @@
 			const time = `<span class='en'>${timeobj.Y}</span>年<span class='en'>${timeobj.M}</span>月<span class='en'>${timeobj.D}</span>日 <span class='en'>${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}</span>`
 			timeDiv.innerHTML= time
 			document.getElementById("timeInput").value = `${timeobj.Y}-${timeobj.M}-${timeobj.D} ${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
+
+			document.getElementById("timeOverInput").value = `${timeobj.Y}-${timeobj.M}-${timeobj.D} ${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
 
 			timebarDiv.innerHTML = `${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}`
 			document.getElementById('timebarInput').value = `${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
@@ -805,6 +809,7 @@
 			storeOrderDiv.innerHTML = '<span class="en">'+storeid+'</span'
 			document.getElementById('storeOrderInput').value = storeid
 		})
+		$('#storeorderrandom').trigger('click')
 
 		const exportBtn = document.getElementById('exportBtn')
 
@@ -857,19 +862,64 @@
 		$('#exportBtn').bind('click', function(event) {
 			event.preventDefault()
 
-			new html2canvas(screenshot, opts).then(canvas => {
-				// document.body.appendChild(canvas)
-				const url = canvas.toDataURL('image/jpeg')
+			if($('#timeInput').val() && $('#timeOverInput').val()) {
+				const timestart = new Date($('#timeInput').val()).getTime()
+				const timeover = new Date($('#timeOverInput').val()).getTime()
 
-				// window.location.href = url;
+				// alert($('#picnumber').val())
 
-				let a = document.createElement('a')
-				a.innerHTML = '点我'
-				let event = new MouseEvent('click')
-				a.download = 1
-				a.href = url
-				a.dispatchEvent(event)
-			})
+				var n = 1
+				if($('#picnumber').val()) {
+					n = $('#picnumber').val()
+				} else {
+					n = 1
+				}
+
+				while(n) {
+					var timejust = selectFrom(timestart, timeover)
+
+					var timeobj = filterTime(timejust)
+
+					const time = `<span class='en'>${timeobj.Y}</span>年<span class='en'>${timeobj.M}</span>月<span class='en'>${timeobj.D}</span>日 <span class='en'>${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}</span>`
+					
+					timeDiv.innerHTML= time
+
+					document.getElementById("timeInput").value = `${timeobj.Y}-${timeobj.M}-${timeobj.D} ${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
+
+					timebarDiv.innerHTML = `${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}`
+					document.getElementById('timebarInput').value = `${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
+
+					const transorder = `${Math.round(Math.random()*10000000000)}${timeobj.Y}${timeobj.M < 10 ? '0'+ timeobj.M : timeobj.M}${timeobj.D < 10 ? '0' + timeobj.D : timeobj.D}${Math.round(Math.random()*100000000000)}`
+					document.getElementById('transOrderInput').value = transorder
+					transOrderDiv.innerHTML = transorder
+
+					var Mi = selectFrom(timeobj.Mi, timeobj.Mi+3)
+					timebarDiv.innerHTML = `${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${Mi<10?'0'+Mi:Mi}`
+					document.getElementById('timebarInput').value = `${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${Mi<10?'0'+Mi:Mi}`
+
+					$('#storeorderrandom').trigger('click')
+
+					$('#icon1').trigger('click')
+			    	$('#icon2').trigger('click')
+					$('#icon3').trigger('click')
+
+					new html2canvas(screenshot, opts).then(canvas => {
+						// document.body.appendChild(canvas)
+						const url = canvas.toDataURL('image/jpeg')
+
+						// window.location.href = url;
+
+						let a = document.createElement('a')
+						a.innerHTML = '点我'
+						let event = new MouseEvent('click')
+						a.download = 1
+						a.href = url
+						a.dispatchEvent(event)
+					})
+					
+					n--
+				} 
+			}
 		})
 
 	</script>

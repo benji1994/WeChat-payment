@@ -332,7 +332,7 @@
 				<div><span class="left">支付时间</span><div id="time" class="right"><span class="en">2022</span>年<span class="en">11</span>月<span class="en">12</span>日 <span class="en">11:26:24</span></div></div>
 				<div><span class="left">支付方式</span><div id="method" class="right">零钱</div></div>
 				<div><span class="left">交易单号</span><div id="transOrder" class="right en">4200001640202211129436341265</div></div>
-				<div><span class="left">商户单号</span><div id="storeOrder" class="right en">22111211100400000026871793062385</div></div>		
+				<div><span class="left">商户单号</span><div id="storeOrder" class="right en">2211121110040000026871793062385</div></div>		
 			</div>
 		</div>
 		<div id="tail">
@@ -616,7 +616,7 @@
 			e.preventDefault()
 			const charlist = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '_']
 			var storeid = ''
-			for(var i = 0; i < 32; i++) {
+			for(var i = 0; i < selectFrom(20, 31); i++) {
 				var index = selectFrom(0, charlist.length-1)
 				// console.log(index +'@'+ charlist[index])
 				storeid += charlist[index]

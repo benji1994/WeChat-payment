@@ -311,8 +311,8 @@
 				<div id="allpaylist">全部账单</div>
 			</div>
 			<img src="" id="photo">
-			<div id="nickname">美团平台商户</div>
-			<div id="price">-29.00</div>
+			<div id="nickname">新职高途</div>
+			<div id="price">4998.00</div>
 			<!-- <div id="des">
 				<div><span class="left">当前状态</span><div class="right">支付成功</div></div>
 				<div><span class="left">商品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><div class="right" id="storeAllName">美团订单<span class='en'>-22111211100400000026871793062385<span></div></div>
@@ -407,34 +407,6 @@
 			document.getElementById("timeInput").value = time
 
 		}
-
-	 	var imglizi = document.getElementById("bgm")
-
-	 	var img = new Image();
-
-        
-        img.onload = ()=> {
-			console.log("已经进去onload")
-			console.log(img.src)
-            var canvas = document.createElement("canvas");
-            canvas.width = img.width;
-            canvas.height = img.height;
-            var ctx = canvas.getContext("2d");
-            img.setAttribute("crossOrigin", 'Anonymous')
-            ctx.drawImage(img, 0, 0, img.width, img.height);
-            var ext = img.src.substring(img.src.lastIndexOf(".") + 1).toLowerCase();
-            var base64 = canvas.toDataURL("image/" + ext);
-            if(base64.length>10000){
-                //此处有一个bug，会执行两次onload事件，第一次执行加载的图片是不对的，所以需要使用第二次的图片
-                imglizi.src = base64
-            }
-        }	
-
-
-        img.onerror=(error)=>{
-            console.log("error",error)
-        }
-
 
     	function selectFrom(lowerValue, upperValue) {
 		    var choices = upperValue - lowerValue + 1;
@@ -543,19 +515,89 @@
 			$('#icon3').trigger('click')
     	})
 
+	 	var img_icon4 = new Image();
+
+    
+        img_icon4.onload = ()=> {
+			console.log("已经进去onload")
+			console.log(img_icon4.src)
+            var canvas = document.createElement("canvas");
+            canvas.width = img_icon4.width;
+            canvas.height = img_icon4.height;
+            var ctx = canvas.getContext("2d");
+            img_icon4.setAttribute("crossOrigin", 'Anonymous')
+            ctx.drawImage(img_icon4, 0, 0, img_icon4.width, img_icon4.height);
+            var ext = img_icon4.src.substring(img_icon4.src.lastIndexOf(".") + 1).toLowerCase();
+            var base64 = canvas.toDataURL("image/" + ext);
+            if(base64.length>10000){
+                //此处有一个bug，会执行两次onload事件，第一次执行加载的图片是不对的，所以需要使用第二次的图片
+                document.getElementById('icon4').src = base64
+            }
+        }	
+
+
+        img_icon4.onerror=(error)=>{
+            console.log("error",error)
+        }
+
     	$('#icon4').click(function () {
-    		imglizi = document.getElementById('icon4')
-    		img.src = './icon/icon4.jpg'+'?v='+Math.random()
+    		img_icon4.src = './icon/icon4.jpg'+'?v='+Math.random()
     	})
+
+	 	var img_icon5 = new Image();
+
+        img_icon5.onload = ()=> {
+			console.log("已经进去onload")
+			console.log(img_icon5.src)
+            var canvas = document.createElement("canvas");
+            canvas.width = img_icon5.width;
+            canvas.height = img_icon5.height;
+            var ctx = canvas.getContext("2d");
+            img_icon5.setAttribute("crossOrigin", 'Anonymous')
+            ctx.drawImage(img_icon5, 0, 0, img_icon5.width, img_icon5.height);
+            var ext = img_icon5.src.substring(img_icon5.src.lastIndexOf(".") + 1).toLowerCase();
+            var base64 = canvas.toDataURL("image/" + ext);
+            if(base64.length>10000){
+                //此处有一个bug，会执行两次onload事件，第一次执行加载的图片是不对的，所以需要使用第二次的图片
+                document.getElementById('icon5').src = base64
+            }
+        }	
+
+
+        img_icon5.onerror=(error)=>{
+            console.log("error",error)
+        }
 
     	$('#icon5').click(function () {
-    		imglizi = document.getElementById('icon5')
-    		img.src = './icon/icon5.jpg'+'?v='+Math.random()
+    		img_icon5.src = './icon/icon5.jpg'+'?v='+Math.random()
     	})
 
+	 	var img_icon6 = new Image();
+
+        img_icon6.onload = ()=> {
+			console.log("已经进去onload")
+			console.log(img_icon6.src)
+            var canvas = document.createElement("canvas");
+            canvas.width = img_icon6.width;
+            canvas.height = img_icon6.height;
+            var ctx = canvas.getContext("2d");
+            img_icon6.setAttribute("crossOrigin", 'Anonymous')
+            ctx.drawImage(img_icon6, 0, 0, img_icon6.width, img_icon6.height);
+            var ext = img_icon6.src.substring(img_icon6.src.lastIndexOf(".") + 1).toLowerCase();
+            var base64 = canvas.toDataURL("image/" + ext);
+            if(base64.length>10000){
+                //此处有一个bug，会执行两次onload事件，第一次执行加载的图片是不对的，所以需要使用第二次的图片
+                document.getElementById('icon6').src = base64
+            }
+        }	
+
+
+        img_icon6.onerror=(error)=>{
+            console.log("error",error)
+        }   
+
     	$('#icon6').click(function () {
-    		imglizi = document.getElementById('icon6')
-    		img.src = './icon/icon6.jpg'+'?v='+Math.random()
+    		img_icon6.src = './icon/icon6.jpg'+'?v='+Math.random()
     	})
 
     	// setTimeout(() => $('#icon4').trigger('click'), 400)
@@ -568,10 +610,32 @@
 	    	$('#icon6').trigger('click')
     	})
 
+	 	var img_close = new Image();
+
+        img_close.onload = ()=> {
+			console.log("已经进去onload")
+			console.log(img_close.src)
+            var canvas = document.createElement("canvas");
+            canvas.width = img_close.width;
+            canvas.height = img_close.height;
+            var ctx = canvas.getContext("2d");
+            img_close.setAttribute("crossOrigin", 'Anonymous')
+            ctx.drawImage(img_close, 0, 0, img_close.width, img_close.height);
+            var ext = img_close.src.substring(img_close.src.lastIndexOf(".") + 1).toLowerCase();
+            var base64 = canvas.toDataURL("image/" + ext);
+            if(base64.length>10000){
+                //此处有一个bug，会执行两次onload事件，第一次执行加载的图片是不对的，所以需要使用第二次的图片
+                document.getElementById('close').src = base64
+            }
+        }	
+
+
+        img_close.onerror=(error)=>{
+            console.log("error",error)
+        }   
 
     	$('#close').click(function() {
-    		imglizi = document.getElementById('close')
-    		img.src = './icon/close.jpg'+'?v='+Math.random()
+    		img_close.src = './icon/close.jpg'+'?v='+Math.random()
     	})
 
     	// setTimeout(() => $('#close').trigger('click'), 700)
@@ -595,6 +659,33 @@
 	      }
 	      return url;
 	    }
+
+	 	// var imglizi = document.getElementById("bgm")
+
+	 	var img_logo = new Image();
+
+        
+        img_logo.onload = ()=> {
+			console.log("已经进去onload")
+			console.log(img_logo.src)
+            var canvas = document.createElement("canvas");
+            canvas.width = img_logo.width;
+            canvas.height = img_logo.height;
+            var ctx = canvas.getContext("2d");
+            img_logo.setAttribute("crossOrigin", 'Anonymous')
+            ctx.drawImage(img_logo, 0, 0, img_logo.width, img_logo.height);
+            var ext = img_logo.src.substring(img_logo.src.lastIndexOf(".") + 1).toLowerCase();
+            var base64 = canvas.toDataURL("image/" + ext);
+            if(base64.length>10000){
+                //此处有一个bug，会执行两次onload事件，第一次执行加载的图片是不对的，所以需要使用第二次的图片
+                document.getElementById('photo').src = base64
+            }
+        }	
+
+
+        img_logo.onerror=(error)=>{
+            console.log("error",error)
+        }
 		
 		const photoDiv = document.getElementById('photo')
 		$('#logoInput').change(function(event) {
@@ -603,8 +694,7 @@
 			// imglizi = photoDiv
 			// img.src = './' + event.target.files[0].name + '?v='+Math.random(); //修改的地方 imgurl 就是你的图片路径，加上随机数是解决可能存在缓存问题
 
-			imglizi = document.getElementById('photo')
-    		img.src = './logo/logo1.jpeg'+'?v='+Math.random()
+    		img_logo.src = './logo/logo1.jpeg'+'?v='+Math.random()
 		})
 
 		$('#logoInput').trigger('change')

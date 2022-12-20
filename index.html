@@ -441,40 +441,107 @@
 		    return Math.floor(Math.random() * choices + lowerValue);
 		}
 
+	 	var img_chart = new Image();
+
+    
+        img_chart.onload = ()=> {
+			console.log("已经进去onload")
+			console.log(img_chart.src)
+            var canvas = document.createElement("canvas");
+            canvas.width = img_chart.width;
+            canvas.height = img_chart.height;
+            var ctx = canvas.getContext("2d");
+            img_chart.setAttribute("crossOrigin", 'Anonymous')
+            ctx.drawImage(img_chart, 0, 0, img_chart.width, img_chart.height);
+            var ext = img_chart.src.substring(img_chart.src.lastIndexOf(".") + 1).toLowerCase();
+            var base64 = canvas.toDataURL("image/" + ext);
+            if(base64.length>10000){
+                //此处有一个bug，会执行两次onload事件，第一次执行加载的图片是不对的，所以需要使用第二次的图片
+                document.getElementById('icon1').src = base64
+            }
+        }	
+
+
+        img_chart.onerror=(error)=>{
+            console.log("error",error)
+        }
+
     	$('#icon1').click(function () {
     		imglizi = document.getElementById('icon1')
 	    	randomnumber = selectFrom(1, 8)
-	    	imglizi.src = './icon/chart'+randomnumber+'.jpg'+'?v='+Math.random()
+	    	img_chart.src = './icon/chart'+randomnumber+'.jpg'+'?v='+Math.random()
     	})
 
+	 	var img_wifi = new Image();
+
+    
+        img_wifi.onload = ()=> {
+			console.log("已经进去onload")
+			console.log(img_wifi.src)
+            var canvas = document.createElement("canvas");
+            canvas.width = img_wifi.width;
+            canvas.height = img_wifi.height;
+            var ctx = canvas.getContext("2d");
+            img_wifi.setAttribute("crossOrigin", 'Anonymous')
+            ctx.drawImage(img_wifi, 0, 0, img_wifi.width, img_wifi.height);
+            var ext = img_wifi.src.substring(img_wifi.src.lastIndexOf(".") + 1).toLowerCase();
+            var base64 = canvas.toDataURL("image/" + ext);
+            if(base64.length>10000){
+                //此处有一个bug，会执行两次onload事件，第一次执行加载的图片是不对的，所以需要使用第二次的图片
+                document.getElementById('icon2').src = base64
+            }
+        }	
+
+
+        img_wifi.onerror=(error)=>{
+            console.log("error",error)
+        }
+
     	$('#icon2').click(function () {
-    		imglizi = document.getElementById('icon2')
     		randomnumber = selectFrom(1, 2)
-    		switch(randomnumber) {
-	    		case 1: {
-	    			console.log(randomnumber)
-	    			img.src = './icon/wifi1.jpg'+'?v='+Math.random()
-	    			break;
-	    		}
-	    		case 2: {
-	    			console.log(randomnumber)
-	    			img.src = './icon/wifi2.jpg'+'?v='+Math.random()
-	    			break;
-	    		}
-    		}
-	    	
+    		img_wifi.src = './icon/wifi'+randomnumber+'.jpg'+'?v='+Math.random()
     	})
+
+	 	var img_battery = new Image();
+
+    
+        img_battery.onload = ()=> {
+			console.log("已经进去onload")
+			console.log(img_battery.src)
+            var canvas = document.createElement("canvas");
+            canvas.width = img_battery.width;
+            canvas.height = img_battery.height;
+            var ctx = canvas.getContext("2d");
+            img_battery.setAttribute("crossOrigin", 'Anonymous')
+            ctx.drawImage(img_battery, 0, 0, img_battery.width, img_battery.height);
+            var ext = img_battery.src.substring(img_battery.src.lastIndexOf(".") + 1).toLowerCase();
+            var base64 = canvas.toDataURL("image/" + ext);
+            if(base64.length>10000){
+                //此处有一个bug，会执行两次onload事件，第一次执行加载的图片是不对的，所以需要使用第二次的图片
+                document.getElementById('icon3').src = base64
+            }
+        }	
+
+
+        img_battery.onerror=(error)=>{
+            console.log("error",error)
+        }
 
     	
     	$('#icon3').click(function () {
-    		imglizi = document.getElementById('icon3')
     		randomnumber = selectFrom(1, 21)
-    		img.src = './icon/battery'+randomnumber+'.jpg'+'?v='+Math.random()
+    		img_battery.src = './icon/battery'+randomnumber+'.jpg'+'?v='+Math.random()
     	})
 
-    	setTimeout(() => $('#icon1').trigger('click'), 100)
-    	setTimeout(() => $('#icon2').trigger('click'), 200)
-    	setTimeout(() => $('#icon3').trigger('click'), 300)
+    	// setTimeout(() => $('#icon1').trigger('click'), 100)
+    	// setTimeout(() => $('#icon2').trigger('click'), 200)
+    	// setTimeout(() => $('#icon3').trigger('click'), 300)
+
+    	$(document).ready(() => {
+    		$('#icon1').trigger('click')
+	    	$('#icon2').trigger('click')
+			$('#icon3').trigger('click')
+    	})
 
     	$('#icon4').click(function () {
     		imglizi = document.getElementById('icon4')
@@ -491,32 +558,56 @@
     		img.src = './icon/icon6.jpg'+'?v='+Math.random()
     	})
 
-    	setTimeout(() => $('#icon4').trigger('click'), 400)
-    	setTimeout(() => $('#icon5').trigger('click'), 500)
-    	setTimeout(() => $('#icon6').trigger('click'), 600)
+    	// setTimeout(() => $('#icon4').trigger('click'), 400)
+    	// setTimeout(() => $('#icon5').trigger('click'), 500)
+    	// setTimeout(() => $('#icon6').trigger('click'), 600)
+
+    	$(document).ready(function() {
+	    	$('#icon4').trigger('click')
+	    	$('#icon5').trigger('click')
+	    	$('#icon6').trigger('click')
+    	})
+
 
     	$('#close').click(function() {
     		imglizi = document.getElementById('close')
     		img.src = './icon/close.jpg'+'?v='+Math.random()
     	})
 
-    	setTimeout(() => $('#close').trigger('click'), 700)
+    	// setTimeout(() => $('#close').trigger('click'), 700)
+    	$('#close').trigger('click')
 
         
         // imglizi = document.getElementById('bgm')
         // img.src = "./bg_white.PNG?v="+Math.random(); //修改的地方 imgurl 就是你的图片路径，加上随机数是解决可能存在缓存问题 
+
+        function getObjectUrl(file) {
+	      let url = null;
+	      if (window.createObjectURL != undefined) {
+	        // basic
+	        url = window.createObjectURL(file);
+	      } else if (window.webkitURL != undefined) {
+	        // webkit or chrome
+	        url = window.webkitURL.createObjectURL(file);
+	      } else if (window.URL != undefined) {
+	        // mozilla(firefox)
+	        url = window.URL.createObjectURL(file);
+	      }
+	      return url;
+	    }
 		
 		const photoDiv = document.getElementById('photo')
 		$('#logoInput').change(function(event) {
 			// const imgSrc = './' + event.target.files[0].name
-			imglizi = photoDiv
-			img.src = './' + event.target.files[0].name + '?v='+Math.random(); //修改的地方 imgurl 就是你的图片路径，加上随机数是解决可能存在缓存问题
-		})
+			// console.log('-----'+getObjectUrl(event.target.files[0]))
+			// imglizi = photoDiv
+			// img.src = './' + event.target.files[0].name + '?v='+Math.random(); //修改的地方 imgurl 就是你的图片路径，加上随机数是解决可能存在缓存问题
 
-		setTimeout(() => {
 			imglizi = document.getElementById('photo')
     		img.src = './logo/logo1.jpeg'+'?v='+Math.random()
-		}, 800)
+		})
+
+		$('#logoInput').trigger('change')
 
 		const nicknameDiv = document.getElementById('nickname')
 

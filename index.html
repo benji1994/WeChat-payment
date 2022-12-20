@@ -18,15 +18,16 @@
   			line-height: 1.42857143;
   			/*padding: 10px 0px;
   			padding-left: 200px;*/
-/*  			color: red;*/
+  			/*color: red;*/
 			color: #000000;
 		}
 
 		.en {
 			xfont-family: "SFPro-Light";
-			font-family: "SF Pro Display Light";
+			xfont-family: "SFProDisplay-Regular";
+			font-family: "SF Pro Display Regular";
 /*			font-family: "苹方国标-粗";*/
-			font-size: 29.5px;
+			font-size: 28.2pxpx;
 		}
 
 		#screenshot {
@@ -60,6 +61,7 @@
 		    position: absolute;
 		    left: 60px;
 		    xfont-family: "SFPro-Medium";
+	        xfont-family: "SFProDisplay-Medium";
 		    font-family: "SF Pro Display Medium";
 		    line-height: 100px;
 		    vertical-align: middle;
@@ -190,7 +192,7 @@
 		    font-family: 'PingFang SC Regular';
 		    margin: 29px 0;
 /*		    background-color: greenyellow;*/
-			color: #576a94;
+			color: #616e77;
 			position: relative;
     	}
 
@@ -324,7 +326,7 @@
 			</div> -->
 			<div id="des">
 				<div><span class="left">当前状态</span><div class="right">支付成功</div></div>
-				<div><span class="left">商品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><div class="right" id="goods">小红书1对1系统实战课</div></div>
+				<div><span class="left">商品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><div class="right" id="goods">小红书<span class='en'>1</span>对<span class="en">1</span>系统实战课</div></div>
 				<div><span class="left">商户全称</span><div id="storeAllName" class="right">广州领知科技有限公司</div></div>
 				<div><span class="left">收单机构</span><div id="storeBy" class="right">财付通支付科技有限公司</div></div>
 				<div><span class="left">支付时间</span><div id="time" class="right"><span class="en">2022</span>年<span class="en">11</span>月<span class="en">12</span>日 <span class="en">11:26:24</span></div></div>
@@ -399,7 +401,7 @@
 		function dateformat (date) {
 			var timeobj = filterTime(new Date().valueOf())
 
-			const time = `${timeobj.Y}年${timeobj.M}月${timeobj.D}日 ${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
+			const time = `<span class='en'>${timeobj.Y}</span>年<span class='en'>${timeobj.M}</span>月<span class='en'>${timeobj.D}</span>日 <span class='en'>${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}</span>`
 			timeDiv.innerHTML= time
 
 			document.getElementById("timeInput").value = time
@@ -441,25 +443,8 @@
 
     	$('#icon1').click(function () {
     		imglizi = document.getElementById('icon1')
-	    	img.src = './icon/chart1.jpg'+'?v='+Math.random()
-	    	randomnumber = selectFrom(1, 3)
-    		switch(randomnumber) {
-	    		case 1: {
-	    			console.log(randomnumber)
-	    			img.src = './icon/chart1.jpg'+'?v='+Math.random()
-	    			break;
-	    		}
-	    		case 2: {
-	    			console.log(randomnumber)
-	    			img.src = './icon/chart2.jpg'+'?v='+Math.random()
-	    			break;
-	    		}
-		    	case 3: {
-	    			console.log(randomnumber)
-	    			img.src = './icon/chart3.jpg'+'?v='+Math.random()
-	    			break;
-	    		}
-    		}
+	    	randomnumber = selectFrom(1, 8)
+	    	imglizi.src = './icon/chart'+randomnumber+'.jpg'+'?v='+Math.random()
     	})
 
     	$('#icon2').click(function () {
@@ -483,34 +468,8 @@
     	
     	$('#icon3').click(function () {
     		imglizi = document.getElementById('icon3')
-    		randomnumber = selectFrom(1, 5)
-    		switch(randomnumber) {
-	    		case 1: {
-	    			console.log(randomnumber)
-	    			img.src = './icon/battery1.jpg'+'?v='+Math.random()
-	    			break;
-	    		}
-	    		case 2: {
-	    			console.log(randomnumber)
-	    			img.src = './icon/battery2.jpg'+'?v='+Math.random()
-	    			break;
-	    		}
-		    	case 3: {
-	    			console.log(randomnumber)
-	    			img.src = './icon/battery3.jpg'+'?v='+Math.random()
-	    			break;
-	    		}
-	    		case 4: {
-	    			console.log(randomnumber)
-	    			img.src = './icon/battery4.jpg'+'?v='+Math.random()
-	    			break;
-	    		}
-		    	case 5: {
-	    			console.log(randomnumber)
-	    			img.src = './icon/battery5.jpg'+'?v='+Math.random()
-	    			break;
-	    		}
-    		}
+    		randomnumber = selectFrom(1, 21)
+    		img.src = './icon/battery'+randomnumber+'.jpg'+'?v='+Math.random()
     	})
 
     	setTimeout(() => $('#icon1').trigger('click'), 100)
@@ -593,7 +552,7 @@
 			if($('#timeInput').val()) {
 				timeobj = filterTime($('#timeInput').val())
 
-				const time = `${timeobj.Y}年${timeobj.M}月${timeobj.D}日 ${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
+				const time = `<span class='en'>${timeobj.Y}</span>年<span class='en'>${timeobj.M}</span>月<span class='en'>${timeobj.D}</span>日 <span class='en'>${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}</span>`
 				timeDiv.innerHTML= time
 
 				const transorder = `${Math.round(Math.random()*10000000000)}${timeobj.Y}${timeobj.M < 10 ? '0'+ timeobj.M : timeobj.M}${timeobj.D < 10 ? '0' + timeobj.D : timeobj.D}${Math.round(Math.random()*100000000000)}`
@@ -620,7 +579,7 @@
 			e.preventDefault()
 			var timeobj = filterTime(new Date().valueOf())
 
-			const time = `${timeobj.Y}年${timeobj.M}月${timeobj.D}日 ${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
+			const time = `<span class='en'>${timeobj.Y}</span>年<span class='en'>${timeobj.M}</span>月<span class='en'>${timeobj.D}</span>日 <span class='en'>${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}</span>`
 			timeDiv.innerHTML= time
 			document.getElementById("timeInput").value = `${timeobj.Y}-${timeobj.M}-${timeobj.D} ${timeobj.H<10?'0'+timeobj.H:timeobj.H}:${timeobj.Mi<10?'0'+timeobj.Mi:timeobj.Mi}:${timeobj.S<10?'0'+timeobj.S:timeobj.S}`
 
@@ -655,8 +614,14 @@
 
 		$('#storeorderrandom').bind('click ptopertychange', function(e) {
 			e.preventDefault()
-			const storeid = Math.round(Math.random()*10000000000000)
-			storeOrderDiv.innerHTML = storeid
+			const charlist = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '_']
+			var storeid = ''
+			for(var i = 0; i < 32; i++) {
+				var index = selectFrom(0, charlist.length-1)
+				// console.log(index +'@'+ charlist[index])
+				storeid += charlist[index]
+			}
+			storeOrderDiv.innerHTML = '<span class="en">'+storeid+'</span'
 			document.getElementById('storeOrderInput').value = storeid
 		})
 
